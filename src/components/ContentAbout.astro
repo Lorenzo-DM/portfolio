@@ -1,0 +1,85 @@
+---
+import { Code } from 'astro:components';
+
+const code = `techstack:
+  languages:
+    - Python
+    - JavaScript
+    - Golang
+    - C-Sharp
+    - Bash
+  web:
+    backend-framework:
+      - Flask
+      - Go-Gin
+      - Express-js
+      - Asp.NET
+    frontend-framework:
+      - React
+      - Next.js
+      - Vue.js
+      - TailwindCSS
+    database:
+      - Postgres
+      - Mysql
+      - MongoDB
+      - SQLite
+    devops:
+      - Docker
+      - Nginx
+      - Ansible
+      - Tailscale
+      - Github-actions
+  game-develpoment:
+    engine:
+      - Godot
+      - Unity3D
+    graphics:
+      - Libresprite
+      - Krita
+  3D-printing:
+    - Blender
+    - Fusion360
+    - Ultimaker-Cura
+  embedded-system:
+    - Arduino
+    - RaspberryPI
+    - Esp32
+interest:
+  - Videogames
+  - Self-Hosting
+  - Open-Source
+  - Cyber-Security
+`;
+---
+
+<Code
+    code={code}
+    lang="yaml"
+    wrap={true}
+/>
+
+<style is:global>
+
+    /* Custom styling for code block line numbers */
+    pre.astro-code {
+        @apply bg-transparent !important;
+    }
+
+    pre.astro-code code {
+        @apply block;
+        counter-reset: step;
+        counter-increment: step 0;
+    }
+
+    pre.astro-code code .line {
+        @apply relative;
+    }
+
+    pre.astro-code code .line::before {
+        content: counter(step);
+        counter-increment: step;
+        @apply text-gray-600 pr-2;
+    }
+
+</style>
