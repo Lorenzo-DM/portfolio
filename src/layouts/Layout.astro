@@ -12,7 +12,7 @@ const geoRegion = "it-IT";
 // SEO title, description and keywords
 const seoTitle = "Lorenzo Della Mea | Full Stack Developer";
 const seoDescription =
-  "I'm a passionate developer who loves learning and digging deep into how things work. I enjoy spend my time self-hosting, experimenting in my homelab, and exploring open source tools, always with a strong focus on privacy, security, and system reliability.";
+  "I'm a passionate developer who loves learning and digging deep into how things work. I enjoy spending my time self-hosting, experimenting in my homelab, and exploring open source tools, always with a strong focus on privacy, security, and system reliability.";
 const seoKeywords = "Full Stack Developer, Italy, Docker, Videogames";
 
 // Open graph data
@@ -23,12 +23,12 @@ const openGraph = {
   image: ogImageUrl,
   type: "website",
   locale: "en_US",
-  siteName: "devi|dev|io",
+  siteName: "Lorenzo Della Mea Portfolio",
 };
 
 // Dublin core
 const dublinCore = {
-  title: "devi|dev|io",
+  title: "Lorenzo Della Mea Portfolio",
   creator: authorPublisher,
   publisher: authorPublisher,
   rights: authorPublisher,
@@ -57,11 +57,6 @@ const dublinCore = {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- End: Meta-Tags -->
-
-    <!-- Start: DNS prefetch and preconnect -->
-    <!-- <link rel="preload" as="image" href="/img/logo.svg" /> -->
-    <link rel="preconnect" href="https://brain.papersend.io" />
-    <!-- End: DNS prefetch and preconnect -->
 
     <!-- Start: Theming and Favicons -->
     <link
@@ -114,10 +109,12 @@ const dublinCore = {
     <meta name="abstract" content={seoDescription} />
     <meta name="keywords" content={seoKeywords} />
 
-    <script
-      defer
-      src="https://analytics.dmlorenzo.it/script.js"
-      data-website-id="f596cc09-58b7-459b-984c-6821c4b03b80"></script>
+    {import.meta.env.PUBLIC_ANALYTICS_URL && (
+      <script
+        defer
+        src={`${import.meta.env.PUBLIC_ANALYTICS_URL}/script.js`}
+        data-website-id={import.meta.env.PUBLIC_ANALYTICS_ID}></script>
+    )}
   </head>
 
   <body class="min-h-[100vh] flex items-center justify-center p-4">

@@ -1,73 +1,36 @@
-# Astro Developer Portfolio Template
-A minimal, easy-to-customize developer portfolio template built with [Astro](https://astro.build/) and [TailwindCSS](https://tailwindcss.com/). No JavaScript in final build.
+# Lorenzo Della Mea - Full Stack Developer Portfolio
 
-## Demo
-Check out a real-world example: [devidev.io](https://devidev.io)
+<div align="center">
+  <a href="https://portfolio.dmlorenzo.it"><strong>🌐 Visit Live Portfolio</strong></a>
+  <br />
+  <br />
+  <img src="https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white" alt="Astro" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/Lighthouse-100/100-success?style=for-the-badge&logo=lighthouse&logoColor=white" alt="Lighthouse Score" />
+</div>
 
-![Astro Developer Portfolio Template - About Preview | devi|dev|io](assets/preview-about.png)
+---
 
-![Astro Developer Portfolio Template - Projects Preview | devi|dev|io](assets/preview-projects.png)
+Welcome to my personal portfolio! This is a high-performance, minimalist developer portfolio designed with a "Code Editor" aesthetic, reflecting my passion for clean code and efficient systems.
 
-## Features
-- No bundled JavaScript – optimized for performance and speed.
-- Fully responsive – mobile-friendly and adaptable across all devices.
-- SEO & Social Media Ready – includes OpenGraph, Twitter, and DublinCore metadata.
-- 100/100 Google PageSpeed Score – for both mobile and desktop.
-- Code highlighting – clean and readable syntax with [Shiki](https://github.com/shikijs/shiki).
-- Developer Portfolio & Projects Showcase – display your work with ease.
-- Code Editor-Inspired Design – modern and developer-friendly aesthetics.
+## 🚀 Overview
 
-## Tech Stack
-- [Astro](https://astro.build/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Shiki](https://github.com/shikijs/shiki)
+- **Zero JavaScript**: Optimized for speed, with no bundled JS in the final build.
+- **100/100 Lighthouse Score**: Maximum performance, accessibility, SEO, and best practices.
+- **Responsive Design**: Seamless experience across mobile, tablet, and desktop.
+- **Dark Mode First**: A sleek, developer-centric aesthetic.
 
-## Getting Started
+## 🎨 Design Philosophy
 
-```sh
-# 1. Clone the repository
-git clone https://github.com/devidevio/astro-developer-portfolio .
+This site is built to be read like a configuration file. It avoids distractions and focuses on what matters: the projects and the technology stack. It's a reflection of my daily environment as a developer—minimalist, terminal-driven, and highly functional.
 
-# 2. Install dependencies
-npm install
+## 🛠️ Tech Stack
 
-# 3. Run the development server
-npm run dev
+- **Framework**: [Astro](https://astro.build/) (v6)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **Syntax Highlighting**: [Shiki](https://github.com/shikijs/shiki)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-# 4. Build for production
-npm run build
+## 📄 License
 
-# Deploy the contents of the `./dist` folder wherever you like.
-```
-
-## Customization
-### Site & Domain Configuration
-- Modify `astro.config.mjs` to update your `site` settings, including metadata for SEO.
-
-### Theme Customization
-- Adjust the primary theme color in `tailwind.config.js`, to fit your branding.
-
-### Updating Content & SEO
-Edit the **Frontmatter** variables in these files:
-- `src/layouts/Layout.astro` – General page info (title, SEO, etc.)
-- `src/components/Socials.astro` – Update your social media links.
-- `src/components/Profile.astro` – Personal profile information.
-- `src/components/ContentProjects.astro` – Projects/portfolio section content.
-- `src/components/ContentAbout.astro` – About section content.
-
-### Profile Picture
-- Replace `/src/assets/profile.png` with your own image.
-
-### Logo & OpenGraph Image
-- Update these files:
-  - `/public/img/logo.svg` (your logo)
-  - `/public/img/meta.png` (your OpenGraph image)
-
-Need a free OpenGraph image?
-- https://tailwind-generator.com/og-image-generator/generator
-
-### Sitemap & Robots.txt
-- Adjust `/public/robots.txt` to match your domain.
-
-## ⭐ Contributing
-Feel free to fork, customize, and contribute to this project. If you find it useful, leaving a star would be greatly appreciated.
+This project is open-source and available under the [MIT License](LICENSE.md).
