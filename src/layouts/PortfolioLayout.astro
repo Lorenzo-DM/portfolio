@@ -1,0 +1,55 @@
+---
+import Layout from "./Layout.astro";
+import Profile from "../components/Profile.astro";
+import Contact from "../components/Contact.astro";
+import ContentLink from "../components/ContentLink.astro";
+
+interface Props {
+  activeTab: "about" | "projects" | "legal";
+}
+
+const { activeTab } = Astro.props;
+---
+
+<Layout>
+  <!-- Start: Main Wrapper -->
+  <main
+    class="flex flex-col md:flex-row w-full max-w-full md:max-w-7xl border border-gray-600 rounded-2xl overflow-hidden shadow-2xl relative bg-black mb-12 md:mb-4"
+  >
+    <!-- Start: Left / upper card -->
+    <div
+      class="p-8 md:p-6 flex flex-col justify-between w-full md:w-2/5 border-b md:border-b-0 md:border-r border-gray-600"
+    >
+      <Profile />
+
+      <div>
+        <Contact />
+      </div>
+    </div>
+    <!-- End: Left / upper card -->
+
+    <!-- Start: Right / lower card -->
+    <div class="w-full md:w-4/5 p-0">
+      <!-- Start: Inner wrapper -->
+      <div class="min-h-full md:h-[90vh] flex flex-col overflow-y-scroll overflow-x-hidden">
+        
+        <!-- Start: Tab bar -->
+        <div class="flex bg-black border-b border-gray-600 overflow-y-auto sticky top-0 z-10">
+          <ContentLink href="/" contentName="about.yaml" isActive={activeTab === 'about'} />
+          <ContentLink href="/projects/" contentName="projects.md" isActive={activeTab === 'projects'} />
+          <ContentLink href="/legal/" contentName="legal.docx" isActive={activeTab === 'legal'} />
+        </div>
+        <!-- End: Tab bar -->
+
+        <!-- Start: Tab content -->
+        <div class="p-6 flex-grow bg-black">
+          <slot />
+        </div>
+        <!-- End: Tab content -->
+
+      </div>
+      <!-- End: Inner wrapper -->
+    </div>
+    <!-- End: Right / lower card -->
+  </main>
+</Layout>

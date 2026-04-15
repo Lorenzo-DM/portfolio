@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import "../styles/global.scss";
 
 // Base domain URL without trailing slash
@@ -43,6 +44,7 @@ const dublinCore = {
 <html lang="en" class="bg-black text-gray-100 font-mono">
   <head>
     <!-- Crawler & Robots -->
+    <ClientRouter />
     <meta
       name="robots"
       content="index, follow, noodp, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
