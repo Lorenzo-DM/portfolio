@@ -2,53 +2,37 @@
 const year = new Date().getFullYear();
 ---
 
-<h1 class="text-3xl font-bold mb-8">Legal Information</h1>
+<h1 class="text-2xl font-bold mb-6 text-white">Legal Information</h1>
 
 <section class="mb-8">
-  <h2 class="text-2xl font-semibold mb-4">Privacy Policy</h2>
-  <div class="text-gray-400">
+  <h2 class="text-xl font-semibold mb-3 text-primary">Privacy Policy</h2>
+  <div class="text-gray-400 text-sm leading-relaxed">
     <p class="mb-4">
-      This website respects your privacy. No personal data is collected, stored,
-      or shared.
+      This website respects your privacy by default. Browsing is anonymous and doesn't require any form of registration.
     </p>
-    <ul class="list-disc list-inside mb-4">
-      <li>No cookies are used.</li>
-      <li>IP addresses are not stored.</li>
-      <li>No tracking or profiling is performed.</li>
+    <ul class="list-disc list-inside mb-4 space-y-1">
+      <li><strong>Cookie-free</strong>: No tracking or profiling cookies are used.</li>
+      <li><strong>Privacy-First Analytics</strong>: I use a self-hosted, privacy-focused analytics solution. Data is collected in a fully anonymized form for statistical purposes only (e.g., page views) without storing IP addresses or personal information.</li>
+      <li><strong>No Third Parties</strong>: Your browsing data is never sold, shared, or shared with third-party advertisers.</li>
     </ul>
-    <p class="mb-4">
-      Anonymous analytics are used solely to understand general traffic and page
-      usage (e.g., number of visits, popular pages). These analytics do not
-      collect personal information and are fully anonymized.
-    </p>
-    <p>
-      By browsing this site, you agree to this privacy approach. If you have any
-      questions, feel free to contact me.
-    </p>
   </div>
 </section>
 
 <section class="mb-8">
-  <h2 class="text-2xl font-semibold mb-4">Terms & Conditions</h2>
-  <div class="text-gray-400">
+  <h2 class="text-xl font-semibold mb-3 text-primary">Terms & License</h2>
+  <div class="text-gray-400 text-sm leading-relaxed">
     <p class="mb-4">
-      By accessing this website, you agree to use it responsibly and for
-      informational purposes only.
+      The source code of this portfolio is released under the <strong>MIT License</strong>. You are free to fork it and use it as a template for your own work.
     </p>
-    <p class="mb-4">
-      All content, projects, and materials shared here are provided "as is",
-      without warranties or guarantees. You are free to explore, learn, and take
-      inspiration, but please do not copy or redistribute content without
-      permission.
+    <p class="mb-4 border-l-2 border-primary pl-4 italic">
+      <strong>Note</strong>: While the codebase is open-source, the personal content—including my biography, project descriptions, and personal images—remain the intellectual property of <strong>Lorenzo Della Mea</strong> and may not be used for commercial purposes or redistributed as your own without explicit permission.
     </p>
     <p>
-      This site does not offer any services, commercial transactions, or user
-      accounts. I reserve the right to update content, structure, or policies at
-      any time without prior notice.
+      All materials are provided "as is", without warranty of any kind.
     </p>
   </div>
 </section>
 
 <footer class="pt-8 text-sm text-gray-500 text-center">
-  © {year} All rights reserved.
+  © {year} Lorenzo Della Mea. Built with Astro.
 </footer>

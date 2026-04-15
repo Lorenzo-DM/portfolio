@@ -1,85 +1,101 @@
 ---
-import { Code } from 'astro:components';
+import { Code } from "astro:components";
 
-const code = `techstack:
+const softwareDev = `tech_stack:
   languages:
     - Python
     - JavaScript
     - Golang
-    - C-Sharp
+    - C_Sharp
     - Bash
-  web:
-    backend-framework:
+  web_development:
+    backend:
       - Flask
-      - Go-Gin
-      - Express-js
+      - Go_Gin
+      - Express.js
       - Asp.NET
-    frontend-framework:
+    frontend:
       - React
       - Next.js
       - Vue.js
       - TailwindCSS
     database:
       - Postgres
-      - Mysql
+      - MySQL
       - MongoDB
       - SQLite
-    devops:
-      - Docker
-      - Nginx
-      - Ansible
-      - Tailscale
-      - Github-actions
-  game-develpoment:
-    engine:
-      - Godot
-      - Unity3D
-    graphics:
-      - Libresprite
-      - Krita
-  3D-printing:
+`;
+
+const specialized = `specialized:
+  devops:
+    - Docker
+    - Nginx
+    - Ansible
+    - Tailscale
+    - GitHub_Actions
+  embedded_systems:
+    - Arduino
+    - Raspberry_Pi
+    - ESP32
+  game_development:
+    - Godot
+    - Unity3D
+    - LibreSprite
+    - Krita
+`;
+
+const other = `other_interests:
+  3d_printing:
     - Blender
     - Fusion360
-    - Ultimaker-Cura
-  embedded-system:
-    - Arduino
-    - RaspberryPI
-    - Esp32
-interest:
-  - Videogames
-  - Self-Hosting
-  - Open-Source
-  - Cyber-Security
+    - Ultimaker_Cura
+  hobbies:
+    - Videogames
+    - Self_Hosting
+    - Open_Source
+    - Cyber_Security
 `;
 ---
 
-<Code
-    code={code}
-    lang="yaml"
-    wrap={true}
-/>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+  <!-- Main Column -->
+  <div class="border border-gray-700/50 rounded-lg p-1 bg-gray-900/10">
+    <Code code={softwareDev} lang="yaml" wrap={true} />
+  </div>
+
+  <!-- Secondary Column -->
+  <div class="flex flex-col gap-4">
+    <div class="border border-gray-700/50 rounded-lg p-1 bg-gray-900/10">
+      <Code code={specialized} lang="yaml" wrap={true} />
+    </div>
+    <div class="border border-gray-700/50 rounded-lg p-1 bg-gray-900/10">
+      <Code code={other} lang="yaml" wrap={true} />
+    </div>
+  </div>
+</div>
 
 <style is:global>
+  /* Custom styling for code block line numbers */
+  pre.astro-code {
+    @apply bg-transparent !important;
+  }
 
-    /* Custom styling for code block line numbers */
-    pre.astro-code {
-        @apply bg-transparent !important;
-    }
+  pre.astro-code code {
+    @apply block;
+    counter-reset: step;
+    counter-increment: step 0;
+    padding: 0.8rem;
+  }
 
-    pre.astro-code code {
-        @apply block;
-        counter-reset: step;
-        counter-increment: step 0;
-    }
+  pre.astro-code code .line {
+    @apply relative;
+  }
 
-    pre.astro-code code .line {
-        @apply relative;
-    }
-
-    pre.astro-code code .line::before {
-        content: counter(step);
-        counter-increment: step;
-        @apply text-gray-600 pr-2;
-    }
-
+  pre.astro-code code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    @apply text-gray-600 text-sm text-right inline-block;
+    width: 1.5rem;
+    margin-right: 1rem;
+  }
 </style>
