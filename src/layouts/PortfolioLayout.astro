@@ -31,19 +31,21 @@ const { activeTab } = Astro.props;
     <!-- Start: Right / lower card -->
     <div class="w-full md:w-4/5 p-0">
       <!-- Start: Inner wrapper -->
-      <div class="min-h-full md:h-[90vh] flex flex-col overflow-y-scroll overflow-x-hidden">
+      <div class="min-h-full md:h-[90vh] flex flex-col overflow-hidden">
         
         <!-- Start: Tab bar -->
-        <div class="flex bg-black border-b border-gray-600 overflow-y-auto sticky top-0 z-10">
+        <div class="flex bg-black border-b border-gray-600 sticky top-0 z-10">
           <ContentLink href="/" contentName="about.yaml" isActive={activeTab === 'about'} />
           <ContentLink href="/projects/" contentName="projects.md" isActive={activeTab === 'projects'} />
           <ContentLink href="/legal/" contentName="legal.docx" isActive={activeTab === 'legal'} />
         </div>
         <!-- End: Tab bar -->
 
-        <!-- Start: Tab content -->
-        <div class="p-6 flex-grow bg-black">
-          <slot />
+        <!-- Start: Tab content area (scrollable) -->
+        <div class="flex-grow overflow-y-auto custom-scrollbar bg-black">
+          <div class="p-6 min-h-full">
+            <slot />
+          </div>
         </div>
         <!-- End: Tab content -->
 
@@ -51,5 +53,6 @@ const { activeTab } = Astro.props;
       <!-- End: Inner wrapper -->
     </div>
     <!-- End: Right / lower card -->
+
   </main>
 </Layout>

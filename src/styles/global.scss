@@ -3,3 +3,46 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+
+pre.astro-code {
+    background-color: transparent !important;
+}
+
+pre.astro-code code {
+    display: block;
+    counter-reset: step;
+    counter-increment: step 0;
+    padding: 0.8rem;
+}
+
+pre.astro-code code .line {
+    position: relative;
+}
+
+pre.astro-code code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: #4b5563;
+    font-size: 0.875rem;
+    text-align: right;
+    display: inline-block;
+    width: 1.5rem;
+    margin-right: 1rem;
+}

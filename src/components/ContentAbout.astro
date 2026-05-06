@@ -74,28 +74,4 @@ const other = `other_interests:
   </div>
 </div>
 
-<style is:global>
-  /* Custom styling for code block line numbers */
-  pre.astro-code {
-    @apply bg-transparent !important;
-  }
 
-  pre.astro-code code {
-    @apply block;
-    counter-reset: step;
-    counter-increment: step 0;
-    padding: 0.8rem;
-  }
-
-  pre.astro-code code .line {
-    @apply relative;
-  }
-
-  pre.astro-code code .line::before {
-    content: counter(step);
-    counter-increment: step;
-    @apply text-gray-600 text-sm text-right inline-block;
-    width: 1.5rem;
-    margin-right: 1rem;
-  }
-</style>

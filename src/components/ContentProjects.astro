@@ -12,14 +12,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Glossario Resiano",
-    description:
-      "A simple glossary to preserve and promote Resian, the language of my native village, in all its variants. Written in Vue and Flask.",
-    link: {
-      url: "https://glossarioresiano.it/",
-    },
-  },
-  {
     name: "Semafero",
     description:
       "An informative website that displays mountain traffic light timings, so you can avoid waiting. Was viewed by more than 100 users per day. Developed with Next.js.",
@@ -36,11 +28,43 @@ const projects: Project[] = [
     },
   },
   {
+    name: "ESP32 Zigbee Coordinator",
+    description:
+      "A Zigbee Coordinator that can be configured dynamically. Totally indipendent from Home Assistant. Developed with ESP-IDF (C++).",
+    link: {
+      url: "https://github.com/Lorenzo-DM/esp32-dynamic-zigbee-coordinator",
+    },
+  },
+  {
+    name: "Glossario Resiano",
+    description:
+      "A simple glossary to preserve and promote Resian, the language of my native village, in all its variants. Written in Vue and Flask.",
+    link: {
+      url: "https://glossarioresiano.it/",
+    },
+  },
+  {
     name: "Lisuseum",
     description:
       "An accessible, innovative and versatile museum guide. With automatic dubbing using AI models and an editor for articles. Developed with Next.js and Go (Gin).",
     link: {
       url: "https://lisuseum.vercel.app/weaving-of-time",
+    },
+  },
+  {
+    name: "Live Race Tracker",
+    description:
+      "A platform for tracking athletes' positions during trail running races in real time. Developed with VueJs and Go (Gin) and uses Redis and websockets for real-time updates. It is designed to integrate with different tracking systems, such as Owntracks and Traccar Client.",
+    link: {
+      url: "",
+    },
+  },
+  {
+    name: "Paranoid Docker",
+    description:
+      "Web UI for managing Docker container and Compose stack updates with rollback support. Developed with Go (Echo) and React. Currently in beta.",
+    link: {
+      url: "https://github.com/Lorenzo-DM/paranoid-docker",
     },
   },
 ];
@@ -50,12 +74,16 @@ const projects: Project[] = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {
       projects.map((project) => (
-        <div class="flex flex-col justify-center items-start border border-gray-700 rounded-lg p-4 bg-black">
-          <h3 class="text-xl font-semibold mb-2 text-secondary">
-            {project.name}
-          </h3>
+        <div class="flex flex-col justify-between items-start border border-gray-700 rounded-lg p-5 bg-black/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group">
+          <div>
+            <h3 class="text-xl font-semibold mb-2 text-secondary group-hover:text-primary transition-colors">
+              {project.name}
+            </h3>
 
-          <p class="text-gray-400">{project.description}</p>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              {project.description}
+            </p>
+          </div>
 
           {project.link?.url ? (
             <a
@@ -63,12 +91,16 @@ const projects: Project[] = [
               title={project.link.title || project.name}
               target={project.link.target || "_blank"}
               class="
-                                w-full px-4 py-2.5 mt-4 text-center
+                                w-full px-4 py-2 mt-6 text-center text-sm font-medium
 
                                 border border-gray-600 rounded-lg
+                                bg-transparent
+                                text-gray-300
 
                                 hover:text-primary
                                 hover:border-primary
+                                hover:bg-primary/5
+                                transition-all duration-300
                             "
             >
               {project.link.buttonLabel || "Open Project Website"}
