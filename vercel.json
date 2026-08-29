@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' https: data:; script-src 'self' https://s.mindword.it 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://s.mindword.it; object-src 'none'; frame-src 'none'; form-action 'self';"
+          "value": "default-src 'self'; base-uri 'self'; img-src 'self' https: data:; script-src 'self' https://s.mindword.it; style-src 'self' 'unsafe-inline'; connect-src 'self' https://s.mindword.it; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self';"
         },
         {
           "key": "X-Content-Type-Options",

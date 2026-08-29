@@ -1,13 +1,12 @@
 ---
-import { Picture } from "astro:assets";
 import ProfilePicture from "../assets/profile.png";
 
 const profile = {
   name: "Lorenzo Della Mea",
-  title: "Full Stack Developer",
+  title: "Fullstack Engineer · Real-Time Systems",
   location: "Udine, Italy",
   description:
-    "I'm a passionate developer who loves learning and digging deep into how things work. I enjoy spending my time self-hosting, experimenting in my homelab, and exploring open source tools, always with a strong focus on privacy, security, and system reliability.",
+    "Fullstack engineer working on real-time systems. Four years shipping production software for enterprise clients in healthcare logistics and media intelligence, with end-to-end ownership from code to deployment. Security-first by habit: I run the infrastructure I build.",
 };
 ---
 
@@ -15,17 +14,21 @@ const profile = {
   class="flex flex-col gap-6 items-center text-center sm:items-start sm:text-left"
 >
   <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
-    <Picture
-      src={ProfilePicture}
-      formats={["webp"]}
+    <img
+      src={ProfilePicture.src}
+      width={ProfilePicture.width}
+      height={ProfilePicture.height}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
       alt={"Profile picture " + profile.name}
       title={profile.name}
-      class="w-32 h-auto rounded-xl object-cover border-1 border-primary mx-auto sm:mx-0"
+      class="w-32 h-auto rounded-xl object-cover mx-auto sm:mx-0"
     />
 
     <div>
       <h1
-        class="text-2xl font-extrabold mb-1 inline-block relative text-text-primary"
+        class="text-2xl font-extrabold mb-1 inline-block relative text-secondary"
       >
         {profile.name}
       </h1>

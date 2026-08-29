@@ -2,58 +2,49 @@
 import { Code } from "astro:components";
 
 const softwareDev = `tech_stack:
-  languages:
-    - Python
-    - JavaScript
-    - Golang
-    - C_Sharp
-    - Bash
-  web_development:
-    backend:
-      - Flask
-      - Go_Gin
-      - Express.js
-      - Asp.NET
-    frontend:
-      - React
-      - Next.js
-      - Vue.js
-      - TailwindCSS
-    database:
-      - Postgres
-      - MySQL
-      - MongoDB
-      - SQLite
+  backend:
+    - Go_Gin
+    - Python_Flask
+    - Node_Express
+  frontend:
+    - React
+    - Vue
+    - TypeScript
+    - TailwindCSS
+  databases:
+    - PostgreSQL
+    - Redis
+    - MongoDB
+
+ai_llm:
+  - Ollama_self_hosted
+  - structured_output
 `;
 
-const specialized = `specialized:
-  devops:
+const specialized = `infrastructure:
+  cloud_devops:
     - Docker
-    - Nginx
-    - Ansible
-    - Tailscale
     - GitHub_Actions
-  embedded_systems:
-    - Arduino
-    - Raspberry_Pi
-    - ESP32
-  game_development:
-    - Godot
-    - Unity3D
-    - LibreSprite
-    - Krita
+    - Traefik
+    - Ansible
+    - Bash
+  security:
+    - OIDC
+    - CSP
+    - CrowdSec
+    - OWASP_auditing
 `;
 
-const other = `other_interests:
-  3d_printing:
-    - Blender
-    - Fusion360
-    - Ultimaker_Cura
-  hobbies:
-    - Videogames
-    - Self_Hosting
-    - Open_Source
-    - Cyber_Security
+const other = `hobby:
+  embedded_iot:
+    - ESP32
+    - MQTT
+    - Zigbee
+  interests:
+    - self_hosting
+    - open_source
+    - game_dev
+    - 3d_printing
 `;
 ---
 

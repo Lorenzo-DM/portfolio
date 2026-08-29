@@ -2,76 +2,61 @@
 import { ClientRouter } from 'astro:transitions';
 import "../styles/global.scss";
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
 // Base domain URL without trailing slash
 const domainBaseURL = "https://portfolio.dmlorenzo.it";
-const ogImageUrl = "https://portfolio.dmlorenzo.it/img/logo.svg";
+const ogImageUrl = `${domainBaseURL}/img/og.png`;
 
 // Website publisher & region
 const authorPublisher = "Lorenzo Della Mea";
 const geoRegion = "it-IT";
 
-// SEO title, description and keywords
-const seoTitle = "Lorenzo Della Mea | Full Stack Developer";
-const seoDescription =
-  "I'm a passionate developer who loves learning and digging deep into how things work. I enjoy spending my time self-hosting, experimenting in my homelab, and exploring open source tools, always with a strong focus on privacy, security, and system reliability.";
-const seoKeywords = "Full Stack Developer, Italy, Docker, Videogames";
+// Defaults, overridable per page
+const defaultTitle = "Lorenzo Della Mea | Fullstack Engineer";
+const defaultDescription =
+  "Fullstack engineer working on real-time systems. Four years shipping production software for enterprise clients in healthcare logistics and media intelligence, with end-to-end ownership from code to deployment. Security-first by habit: I run the infrastructure I build.";
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+} = Astro.props;
 
 // Open graph data
 const openGraph = {
-  title: seoTitle,
-  description: seoDescription,
-  url: domainBaseURL,
+  title,
+  description,
+  url: Astro.url,
   image: ogImageUrl,
+  imageAlt: "Lorenzo Della Mea — Full Stack Developer, Udine, Italy",
   type: "website",
   locale: "en_US",
   siteName: "Lorenzo Della Mea Portfolio",
-};
-
-// Dublin core
-const dublinCore = {
-  title: "Lorenzo Della Mea Portfolio",
-  creator: authorPublisher,
-  publisher: authorPublisher,
-  rights: authorPublisher,
-  description: seoDescription,
-  language: "en",
-  type: "Software",
-  format: "text/html",
 };
 ---
 
 <!doctype html>
 <html lang="en" class="bg-black text-gray-100 font-mono">
   <head>
-    <!-- Crawler & Robots -->
     <ClientRouter />
-    <meta
-      name="robots"
-      content="index, follow, noodp, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="revisit" content="after 7 days" />
 
     <!-- Start: Meta-Tags -->
     <meta charset="UTF-8" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Pragma" content="cache" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <!-- End: Meta-Tags -->
 
     <!-- Start: Theming and Favicons -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      crossorigin="anonymous"
-      href="/img/logo.svg"
-    />
-    <!-- <link rel="alternate icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-        <link rel="alternate icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-        <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-        <link rel="manifest" href="/img/favicon/site.webmanifest"> -->
+    <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+    <link rel="alternate icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#000000" />
     <!-- End: Theming and Favicons -->
 
     <!-- Start: Misc meta tags -->
@@ -84,32 +69,30 @@ const dublinCore = {
     <meta name="copyright" content={authorPublisher} />
     <!-- End: Misc meta tags -->
 
-    <!-- Start: Facebook open graph -->
+    <!-- Start: Open graph -->
     <meta property="og:title" content={openGraph.title} />
     <meta property="og:description" content={openGraph.description} />
     <meta property="og:url" content={openGraph.url} />
     <meta property="og:type" content={openGraph.type} />
     <meta property="og:image" content={openGraph.image} />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content={openGraph.imageAlt} />
     <meta property="og:locale" content={openGraph.locale} />
     <meta property="og:site_name" content={openGraph.siteName} />
-    <!-- End: Facebook open graph -->
+    <!-- End: Open graph -->
 
-    <!-- Start: Dublin Core (DC) -->
-    <meta name="DC.Title" content={dublinCore.title} />
-    <meta name="DC.Creator" content={dublinCore.creator} />
-    <meta name="DC.Rights" content={dublinCore.rights} />
-    <meta name="DC.Publisher" content={dublinCore.publisher} />
-    <meta name="DC.Description" content={dublinCore.description} />
-    <meta name="DC.Language" content={dublinCore.language} />
-    <meta name="DC.Type" content={dublinCore.type} />
-    <meta name="DC.Format" content={dublinCore.format} />
-    <!-- End: Dublin Core (DC) -->
+    <!-- Start: Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={openGraph.title} />
+    <meta name="twitter:description" content={openGraph.description} />
+    <meta name="twitter:image" content={openGraph.image} />
+    <meta name="twitter:image:alt" content={openGraph.imageAlt} />
+    <!-- End: Twitter card -->
 
     <!-- Title & Description -->
-    <title>{seoTitle}</title>
-    <meta name="description" content={seoDescription} />
-    <meta name="abstract" content={seoDescription} />
-    <meta name="keywords" content={seoKeywords} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
     {import.meta.env.PUBLIC_ANALYTICS_URL && (
       <script

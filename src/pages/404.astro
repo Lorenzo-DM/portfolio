@@ -2,38 +2,61 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-  <main class="flex flex-col items-center justify-center p-8 text-center">
-    <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-8 max-w-lg w-full shadow-2xl">
-      <div class="bg-red-500/10 border-l-4 border-red-500 p-4 mb-6 text-left">
-        <h1 class="text-2xl font-bold text-red-500 mb-2">Error 404: Not Found</h1>
-        <p class="text-gray-400 text-sm">
-          The requested resource was not found on this server.
-        </p>
-      </div>
+<Layout
+  title="404 Not Found | Lorenzo Della Mea"
+  description="The requested resource was not found on this server."
+>
+  <main class="w-full max-w-lg">
+    <div
+      class="border border-gray-600 rounded-2xl p-8 bg-black shadow-2xl"
+    >
+      <h1 class="text-6xl font-bold text-primary leading-none mb-3">404</h1>
 
-      <div class="font-mono text-left mb-8 space-y-2">
-        <p class="text-primary tracking-tighter">
-          <span class="text-gray-500">$</span> head -n 404 /tmp/current_location
+      <p class="text-secondary text-sm mb-2">Not Found</p>
+
+      <p class="text-gray-400 text-sm leading-relaxed mb-6">
+        The requested resource was not found on this server.
+      </p>
+
+      <!-- Start: Terminal -->
+      <div class="bg-black rounded-lg p-4 border border-gray-600 text-xs">
+        <div class="flex items-center">
+          <span class="text-primary mr-2">$</span>
+          <span class="text-gray-100">head -n 404 /tmp/current_location</span>
+        </div>
+
+        <p class="mt-2 text-gray-400">
+          head: /tmp/current_location: No such file or directory
         </p>
-        <p class="text-red-400">
-          cat: /tmp/current_location: No such file or directory
-        </p>
-        <p class="text-gray-600">
-          <span class="text-gray-500">$</span> _
-        </p>
+
+        <div class="flex items-center mt-2">
+          <span class="text-primary mr-2">$</span>
+          <span class="text-gray-600">_</span>
+        </div>
       </div>
+      <!-- End: Terminal -->
 
       <a
         href="/"
-        class="inline-block px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-black transition-all duration-200 font-bold"
+        class="
+          block w-full px-4 py-2 mt-6 text-center text-sm font-medium
+
+          border border-gray-600 rounded-lg
+          bg-transparent
+          text-gray-300
+
+          hover:text-primary
+          hover:border-primary
+          hover:bg-primary/5
+          transition-all duration-300
+        "
       >
         cd /home/lorenzo
       </a>
     </div>
-    
-    <p class="mt-8 text-gray-500 text-xs uppercase tracking-widest">
-      Lorenzo Della Mea Portfolio
+
+    <p class="mt-6 text-center text-xs text-gray-600">
+      portfolio.dmlorenzo.it
     </p>
   </main>
 </Layout>

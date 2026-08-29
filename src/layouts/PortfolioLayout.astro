@@ -6,12 +6,14 @@ import ContentLink from "../components/ContentLink.astro";
 
 interface Props {
   activeTab: "about" | "projects" | "legal";
+  title?: string;
+  description?: string;
 }
 
-const { activeTab } = Astro.props;
+const { activeTab, title, description } = Astro.props;
 ---
 
-<Layout>
+<Layout title={title} description={description}>
   <!-- Start: Main Wrapper -->
   <main
     class="flex flex-col md:flex-row w-full max-w-full md:max-w-7xl border border-gray-600 rounded-2xl overflow-hidden shadow-2xl relative bg-black mb-12 md:mb-4"
@@ -29,16 +31,16 @@ const { activeTab } = Astro.props;
     <!-- End: Left / upper card -->
 
     <!-- Start: Right / lower card -->
-    <div class="w-full md:w-4/5 p-0">
+    <div class="w-full md:w-3/5 p-0">
       <!-- Start: Inner wrapper -->
       <div class="min-h-full md:h-[90vh] flex flex-col overflow-hidden">
         
         <!-- Start: Tab bar -->
-        <div class="flex bg-black border-b border-gray-600 sticky top-0 z-10">
+        <nav aria-label="Sections" class="flex bg-black border-b border-gray-600 sticky top-0 z-10">
           <ContentLink href="/" contentName="about.yaml" isActive={activeTab === 'about'} />
           <ContentLink href="/projects/" contentName="projects.md" isActive={activeTab === 'projects'} />
           <ContentLink href="/legal/" contentName="legal.docx" isActive={activeTab === 'legal'} />
-        </div>
+        </nav>
         <!-- End: Tab bar -->
 
         <!-- Start: Tab content area (scrollable) -->
