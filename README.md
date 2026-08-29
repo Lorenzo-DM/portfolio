@@ -1,17 +1,18 @@
-# Lorenzo Della Mea - Full Stack Developer Portfolio
+# Lorenzo Della Mea - Fullstack Engineer Portfolio
 > Visit website [here](https://portfolio.dmlorenzo.it)!
 >
-> ![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff) ![Tailwind](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss) ![Lighthouse](https://img.shields.io/badge/lighthouse%20performance-100%25-brightgreen)
+> ![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff) ![Tailwind](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
 ---
 
 Welcome to my personal portfolio! This is a high-performance, minimalist developer portfolio designed with a "Code Editor" aesthetic, reflecting my passion for clean code and efficient systems.
 
 ## Overview
 
-- **Zero JavaScript**: Optimized for speed, with no bundled JS in the final build.
-- **100/100 Lighthouse Score**: Maximum performance, accessibility, SEO, and best practices.
+- **Static-first**: pre-rendered HTML, no framework runtime in the browser. The only JavaScript shipped is Astro's view transitions and link prefetching, ~16 KB total.
 - **Responsive Design**: Seamless experience across mobile, tablet, and desktop.
 - **Dark Mode First**: A sleek, developer-centric aesthetic.
+- **Private by default**: no cookies, no third-party trackers. Analytics is self-hosted and only loads when configured.
+- **Hardened**: strict Content Security Policy with no `unsafe-inline` scripts, plus `frame-ancestors`, `nosniff` and a locked-down `Permissions-Policy`.
 
 ## Design Philosophy
 
@@ -19,11 +20,35 @@ This site is built to be read like a configuration file. It avoids distractions 
 
 ## Tech Stack
 
-- **Framework**: [Astro](https://astro.build/) (v6)
+- **Framework**: [Astro](https://astro.build/) (v7)
 - **Styling**: [TailwindCSS](https://tailwindcss.com/)
-- **Syntax Highlighting**: [Shiki](https://github.com/shikijs/shiki)
+- **Syntax Highlighting**: [Shiki](https://github.com/shikijs/shiki), via Astro's built-in `<Code />`
 - **Deployment**: [Vercel](https://vercel.com/)
 
-##  License
+## Running Locally
+
+Requires [Bun](https://bun.sh).
+
+```bash
+bun install
+bun run dev      # dev server
+bun run build    # production build into dist/
+bun run preview  # serve the built output
+```
+
+### Environment
+
+Both are optional: the analytics script is only injected when `PUBLIC_ANALYTICS_URL` is set.
+
+```bash
+PUBLIC_ANALYTICS_URL=   # base URL of the self-hosted analytics instance
+PUBLIC_ANALYTICS_ID=    # website id
+```
+
+Copy `.env.example` to `.env` to get started.
+
+> The social preview image is generated from `tools/og-image.html` — open it, screenshot the `#og` node, and save over `public/img/og.png`.
+
+## License
 
 This project is open-source and available under the [MIT License](LICENSE.md).
