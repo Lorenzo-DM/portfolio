@@ -2,6 +2,11 @@
 interface Project {
   name: string;
   description: string;
+  year: string;
+  context: string;
+  team: string;
+  status?: string;
+  noLink?: string;
   link: {
     url?: string;
     target?: string;
@@ -12,25 +17,13 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Semafero",
-    description:
-      "An informative website that displays mountain traffic light timings, so you can avoid waiting. Was viewed by more than 100 users per day. Developed with Next.js.",
-    link: {
-      url: "https://semafero.vercel.app/",
-    },
-  },
-  {
-    name: "SempreVerde",
-    description:
-      "Version 2.0 of Semafero, with completely revised graphics, fully dynamic, implementing notifications and geared towards maintenance by the community. Developed with Expo and Go (Gin)",
-    link: {
-      url: "https://sempreverde-expo.vercel.app/",
-    },
-  },
-  {
     name: "TrailTrace",
     description:
-      "A platform for tracking athletes' positions during trail running races in real time. Developed with VueJs and Go (Gin) and uses Redis and websockets for real-time updates. It is designed to integrate with different tracking systems, such as Owntracks and Traccar Client.",
+      "A platform for tracking athletes' positions during trail running races in real time. Used in production at a race with 100 athletes tracked live simultaneously, broadcast on a big screen for spectators. Developed with VueJs and Go (Gin), using Redis and websockets for real-time updates. It integrates with different tracking systems, such as Owntracks and Traccar Client, over MQTT or HTTP.",
+    year: "2026",
+    context: "Freelance",
+    team: "Solo",
+    noLink: "Closed source",
     link: {
       url: "",
     },
@@ -39,40 +32,90 @@ const projects: Project[] = [
     name: "M-Chrono",
     description:
       "An offline-first desktop chronometry app for trail running races. A highly intuitive interface shows multiple stopwatches at once, lets you apply the same time across them and edit any recorded value with ease. Exports results to XLSX and CSV. Developed with Tauri 2, Svelte 5 and Rust.",
+    year: "2026",
+    context: "Open source",
+    team: "Solo",
     link: {
       url: "https://github.com/Lorenzo-DM/M-Chrono.rs",
+    },
+  },
+  {
+    name: "MindWord",
+    description:
+      "A real-time multiplayer word game for 2 to 6 players, where every round the group tries to converge on the same word. Scoring runs fully locally on a precomputed fastText vector artifact, so a round costs nothing in API calls and resolves in single-digit milliseconds. Synchronous multiplayer: a round starts only once at least two players are connected. Developed with FastAPI and React Native (Expo).",
+    year: "2026",
+    context: "Personal",
+    team: "Team of 2",
+    status: "Beta",
+    link: {
+      url: "https://mindword.it/",
+    },
+  },
+  {
+    name: "Paranoid Docker",
+    description:
+      "Web UI for managing Docker container and Compose stack updates with rollback support. Developed with Go (Echo) and React.",
+    year: "2026",
+    context: "Open source",
+    team: "Solo",
+    status: "Beta",
+    link: {
+      url: "https://github.com/Lorenzo-DM/paranoid-docker",
     },
   },
   {
     name: "ESP32 Zigbee Coordinator",
     description:
       "A Zigbee Coordinator that can be configured dynamically. Totally indipendent from Home Assistant. Developed with ESP-IDF (C++).",
+    year: "2026",
+    context: "Open source",
+    team: "Solo",
     link: {
       url: "https://github.com/Lorenzo-DM/esp32-dynamic-zigbee-coordinator",
+    },
+  },
+  {
+    name: "SempreVerde",
+    description:
+      "Version 2.0 of Semafero, with completely revised graphics, fully dynamic, implementing notifications and geared towards maintenance by the community. Developed with Expo and Go (Gin).",
+    year: "2025 - present",
+    context: "Product",
+    team: "Solo",
+    link: {
+      url: "https://sempreverde-expo.vercel.app/",
+    },
+  },
+  {
+    name: "Lisuseum",
+    description:
+      "An accessible, innovative and versatile museum guide, built to the brief of a real museum. With automatic dubbing using AI models and an editor for articles. Developed with Next.js and Go (Gin).",
+    year: "2025 - 2026",
+    context: "Client pitch",
+    team: "Solo",
+    link: {
+      url: "https://lisuseum.vercel.app/weaving-of-time",
     },
   },
   {
     name: "Glossario Resiano",
     description:
       "A simple glossary to preserve and promote Resian, the language of my native village, in all its variants. Written in Vue and Flask.",
+    year: "2023 - present",
+    context: "Personal",
+    team: "Team of 2",
     link: {
       url: "https://glossarioresiano.it/",
     },
   },
   {
-    name: "Lisuseum",
+    name: "Semafero",
     description:
-      "An accessible, innovative and versatile museum guide. With automatic dubbing using AI models and an editor for articles. Developed with Next.js and Go (Gin).",
+      "An informative website that displays mountain traffic light timings, so you can avoid waiting. Reached more than 100 users per day and earned a special recognition from the municipality, with local press coverage. Developed with Next.js.",
+    year: "2022 - 2025",
+    context: "Personal",
+    team: "Solo",
     link: {
-      url: "https://lisuseum.vercel.app/weaving-of-time",
-    },
-  },
-  {
-    name: "Paranoid Docker",
-    description:
-      "Web UI for managing Docker container and Compose stack updates with rollback support. Developed with Go (Echo) and React. Currently in beta.",
-    link: {
-      url: "https://github.com/Lorenzo-DM/paranoid-docker",
+      url: "https://semafero.vercel.app/",
     },
   },
 ];
@@ -84,9 +127,22 @@ const projects: Project[] = [
       projects.map((project) => (
         <div class="flex flex-col justify-between items-start border border-gray-700 rounded-lg p-5 bg-black/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group">
           <div>
-            <h3 class="text-xl font-semibold mb-2 text-secondary group-hover:text-primary transition-colors">
+            <h2 class="text-xl font-semibold mb-1 text-secondary group-hover:text-primary transition-colors">
               {project.name}
-            </h3>
+            </h2>
+
+            <p class="flex flex-wrap items-center gap-x-2 mb-3 text-xs text-gray-500">
+              <span>{project.year}</span>
+              <span aria-hidden="true">&middot;</span>
+              <span>{project.context}</span>
+              <span aria-hidden="true">&middot;</span>
+              <span>{project.team}</span>
+              {project.status ? (
+                <span class="px-1.5 py-0.5 border border-gray-700 rounded text-[10px] uppercase tracking-wider text-gray-400">
+                  {project.status}
+                </span>
+              ) : null}
+            </p>
 
             <p class="text-gray-400 text-sm leading-relaxed">
               {project.description}
@@ -98,6 +154,7 @@ const projects: Project[] = [
               href={project.link.url}
               title={project.link.title || project.name}
               target={project.link.target || "_blank"}
+              rel="noopener noreferrer"
               class="
                                 w-full px-4 py-2 mt-6 text-center text-sm font-medium
 
@@ -113,6 +170,17 @@ const projects: Project[] = [
             >
               {project.link.buttonLabel || "Open Project Website"}
             </a>
+          ) : project.noLink ? (
+            <p
+              class="
+                                w-full px-4 py-2 mt-6 text-center text-sm font-medium
+
+                                border border-dashed border-gray-700 rounded-lg
+                                text-gray-500
+                            "
+            >
+              {project.noLink}
+            </p>
           ) : null}
         </div>
       ))

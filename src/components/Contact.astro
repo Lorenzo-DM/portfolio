@@ -1,15 +1,15 @@
 ---
-import Socials from './Socials.astro';
+import Socials from "./Socials.astro";
 ---
 
 <div>
-
     <!-- Start: Terminal -->
     <div class="mt-6 bg-black rounded-lg p-4 border border-gray-600 text-xs">
-
         <div class="flex items-center mb-2">
             <span class="text-primary mr-2">$</span>
-            <span class="text-gray-100">docker run -p 8080:4321 portfolio:latest</span>
+            <span class="text-gray-100"
+                >docker run -p 8080:4321 portfolio:latest</span
+            >
         </div>
 
         <div class="mt-2 text-gray-400">
@@ -20,11 +20,19 @@ import Socials from './Socials.astro';
             Waiting for contact request...
         </div>
 
+        <a
+            href="/home/lorenzo/secrets.txt"
+            rel="nofollow"
+            title="Nothing to see here"
+            class="flex items-center mt-3 text-gray-600 hover:text-primary transition-colors duration-200"
+        >
+            <span class="mr-2">$</span>
+            <span>cat /home/lorenzo/secrets.txt</span>
+        </a>
     </div>
     <!-- End: Terminal -->
 
     <!-- Start: Social Links -->
     <Socials />
     <!-- End: Social Links -->
-
 </div>

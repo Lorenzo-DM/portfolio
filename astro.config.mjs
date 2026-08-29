@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
     output: 'static',
-    trailingSlash: 'always',
+    trailingSlash: 'ignore',
     site: 'https://portfolio.dmlorenzo.it',
 
     // Prefetch tab links on hover so page-to-page nav feels instant
