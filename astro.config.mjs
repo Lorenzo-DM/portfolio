@@ -9,8 +9,8 @@ export default defineConfig({
     trailingSlash: 'always',
     site: 'https://portfolio.dmlorenzo.it',
 
-    // Single page, no prefetch needed
-    prefetch: false,
+    // Prefetch tab links on hover so page-to-page nav feels instant
+    prefetch: true,
 
     integrations: [
         tailwind(),

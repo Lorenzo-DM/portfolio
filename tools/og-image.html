@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>OG image source — 1200x630</title>
+<!--
+  Source for public/img/og.png (the link-preview card).
+
+  Capture, pixel-perfect:
+    1. open this file in Chrome
+    2. right-click the card -> Inspect, select the <div id="og"> node
+    3. Cmd+Shift+P -> "Capture node screenshot"
+       -> saves exactly 1200x630
+    4. save it over public/img/og.png
+
+  Edit the markup below to change the text. The card is styled with the
+  site's own palette (tailwind.config.js) and font stack.
+-->
+<style>
+  :root {
+    --primary: #FF2DD1;
+    --secondary: #6AECE1;
+    --gray-100: #f3f4f6;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    /* github-dark, the theme Astro's <Code> uses on the live site */
+    --yaml-key: #79c0ff;
+    --yaml-val: #a5d6ff;
+    --yaml-punct: #c9d1d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #18181b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  /* ---- the capture target: exactly 1200x630 ---- */
+  #og {
+    width: 1200px;
+    height: 630px;
+    background: #000;
+    padding: 32px;
+    display: flex;
+    flex: none;
+  }
+
+  .card {
+    flex: 1;
+    display: flex;
+    border: 2px solid var(--gray-600);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* ---- left: identity ---- */
+  .left {
+    width: 41%;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2px solid var(--gray-600);
+  }
+
+  /* natural aspect, like the site: the portrait is ASCII art and must not crop */
+  .avatar {
+    width: 186px;
+    height: auto;
+    border-radius: 14px;
+    border: 2px solid var(--primary);
+    display: block;
+  }
+
+  .name {
+    margin-top: 24px;
+    font-size: 44px;
+    line-height: 1.06;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--secondary);
+  }
+
+  .role {
+    margin-top: 14px;
+    font-size: 21px;
+    color: var(--primary);
+  }
+
+  .location {
+    margin-top: 10px;
+    font-size: 17px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--gray-500);
+  }
+  .contact .prompt { color: var(--primary); margin-right: 8px; }
+  .contact .cmd { color: var(--gray-100); }
+  .contact .url { color: var(--gray-400); }
+
+  /* ---- right: the editor pane ---- */
+  .right { flex: 1; display: flex; flex-direction: column; }
+
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid var(--gray-600);
+    flex: none;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 16px 22px;
+    font-size: 17px;
+    color: var(--gray-500);
+    border-right: 2px solid var(--gray-600);
+  }
+  .tab:last-child { border-right: 0; }
+  .tab.active {
+    color: var(--primary);
+    background: rgba(17, 24, 39, 0.5);
+    box-shadow: inset 0 -3px 0 var(--primary);
+  }
+  .tab svg { width: 16px; height: 16px; flex: none; }
+
+  .code {
+    flex: 1;
+    padding: 30px 34px;
+    font-size: 25px;
+    line-height: 1.62;
+    counter-reset: step;
+  }
+
+  .code .line { display: block; white-space: pre; }
+  .code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: var(--gray-700);
+    display: inline-block;
+    width: 2ch;
+    margin-right: 2ch;
+    text-align: right;
+  }
+
+  .k { color: var(--yaml-key); }
+  .v { color: var(--yaml-val); }
+  .p { color: var(--yaml-punct); }
+
+  /* ---- screen-only helper, not part of the capture ---- */
+  .hint {
+    max-width: 1200px;
+    color: #a1a1aa;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .hint b { color: #fafafa; font-weight: 600; }
+  .hint code {
+    background: #27272a;
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: #fafafa;
+  }
+</style>
+</head>
+<body>
+
+<div id="og">
+  <div class="card">
+
+    <!-- Start: identity column -->
+    <div class="left">
+      <div>
+        <img class="avatar" src="../src/assets/profile.png" alt="" />
+        <div class="name">Lorenzo<br />Della Mea</div>
+        <div class="role">Full Stack Developer</div>
+        <div class="location">
+          <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round"
+               stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Udine, Italy
+        </div>
+      </div>
+
+      <div class="contact">
+        <div><span class="prompt">$</span><span class="cmd">cat contact</span></div>
+        <div class="url">github.com/Lorenzo-DM</div>
+        <div class="url">portfolio.dmlorenzo.it</div>
+      </div>
+    </div>
+    <!-- End: identity column -->
+
+    <!-- Start: editor column -->
+    <div class="right">
+      <div class="tabs">
+        <div class="tab active">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+               stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          about.yaml
+        </div>
+        <div class="tab">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+               stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          projects.md
+        </div>
+        <div class="tab">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+               stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          legal.docx
+        </div>
+      </div>
+
+      <div class="code"><span class="line"><span class="k">tech_stack</span><span class="p">:</span></span><span class="line">  <span class="k">languages</span><span class="p">:</span></span><span class="line">    <span class="p">-</span> <span class="v">Golang</span></span><span class="line">    <span class="p">-</span> <span class="v">Python</span></span><span class="line">    <span class="p">-</span> <span class="v">JavaScript</span></span><span class="line">  <span class="k">web_development</span><span class="p">:</span></span><span class="line">    <span class="k">backend</span><span class="p">:</span></span><span class="line">      <span class="p">-</span> <span class="v">Go_Gin</span></span><span class="line">      <span class="p">-</span> <span class="v">Flask</span></span><span class="line">    <span class="k">frontend</span><span class="p">:</span></span></div>
+    </div>
+    <!-- End: editor column -->
+
+  </div>
+</div>
+
+<p class="hint">
+  <b>Capture:</b> open in Chrome → Inspect → select the <code>&lt;div id="og"&gt;</code> node →
+  <code>Cmd+Shift+P</code> → <b>Capture node screenshot</b> → saves exactly 1200×630 → replace
+  <code>public/img/og.png</code>. Everything outside the black box is screen-only and never captured.
+</p>
+
+</body>
+</html>
