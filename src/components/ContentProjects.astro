@@ -17,6 +17,17 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Termux Restic Backup",
+    description:
+      "Encrypted, deduplicated, automatic backups from Android to any cloud, with no root. A single interactive installer sets up restic and rclone inside Termux and registers a daily job with Android's JobScheduler, which survives reboots and only notifies you on failure. Works with any provider rclone supports, such as S3, Backblaze B2, Google Drive and Nextcloud. Written in Bash.",
+    year: "2026",
+    context: "Open source",
+    team: "Solo",
+    link: {
+      url: "https://github.com/Lorenzo-DM/termux-restic-backup",
+    },
+  },
+  {
     name: "TrailTrace",
     description:
       "A platform for tracking athletes' positions during trail running races in real time. Used in production at a race with 100 athletes tracked live simultaneously, broadcast on a big screen for spectators. Developed with VueJs and Go (Gin), using Redis and websockets for real-time updates. It integrates with different tracking systems, such as Owntracks and Traccar Client, over MQTT or HTTP.",
