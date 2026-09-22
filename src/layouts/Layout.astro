@@ -11,6 +11,9 @@ interface Props {
 const domainBaseURL = "https://portfolio.dmlorenzo.it";
 const ogImageUrl = `${domainBaseURL}/img/og.png`;
 
+// Google Search Console ownership token (build-time env var)
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 // Website publisher & region
 const authorPublisher = "Lorenzo Della Mea";
 const geoRegion = "it-IT";
@@ -51,6 +54,12 @@ const openGraph = {
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <!-- End: Meta-Tags -->
+
+    <!-- Start: Search engine verification -->
+    {googleSiteVerification && (
+      <meta name="google-site-verification" content={googleSiteVerification} />
+    )}
+    <!-- End: Search engine verification -->
 
     <!-- Start: Theming and Favicons -->
     <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
