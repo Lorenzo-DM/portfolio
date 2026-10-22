@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
 
@@ -12,8 +12,11 @@ export default defineConfig({
     // Prefetch tab links on hover so page-to-page nav feels instant
     prefetch: true,
 
+    vite: {
+        plugins: [tailwindcss()]
+    },
+
     integrations: [
-        tailwind(),
         sitemap(),
         compress({
             CSS: true,
